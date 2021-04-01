@@ -1,6 +1,7 @@
 
 import './App.css';
 import {Route, BrowserRouter, NavLink} from "react-router-dom";
+import {Component} from "react";
 
 function Menu (){
     return(
@@ -12,7 +13,23 @@ function Menu (){
     )
 }
 
-function ContactUs(){
+function Homepage (){
+    return (
+        <div className="container my-5">
+            <h3>Главная страница</h3>
+        </div>
+    )
+}
+
+function About (){
+    return (
+        <div className="container my-5">
+        <h3>О нас</h3>
+        </div>
+    )
+}
+
+function ContactUs (){
     return (
         <div className="container my-5">
             <form action="">
@@ -31,8 +48,8 @@ function App() {
 
         <BrowserRouter>
             <Menu/>
-            <Route exact path="/"render={()=><h1>Главная страница</h1>}/>
-            <Route path="/about" render={()=><h1>О нас</h1>}/>
+            <Route exact path="/"render={()=><Homepage/>}/>
+            <Route path="/about" render={()=><About/>}/>
             <Route exact path="/contact-us" render={()=><ContactUs/>}/>
         </BrowserRouter>
 

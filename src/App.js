@@ -1,18 +1,9 @@
-
 import './App.css';
 import {Route, BrowserRouter, NavLink} from "react-router-dom";
-import {Component} from "react";
-
-function Menu (){
-    return(
-        <nav className="nav">
-            <NavLink className="nav-link active" aria-current="page" to="/">Главная</NavLink>
-            <NavLink className="nav-link" to="/about">О нас</NavLink>
-            <NavLink className="nav-link" to="/contact-us">Контакты</NavLink>
-        </nav>
-    )
-}
-
+import React from "react";
+import {Menu} from "./components/Menu";
+import {PostList} from "./components/PostList";
+import {Post} from "./components/Post";
 function Homepage (){
     return (
         <div className="container my-5">
@@ -20,15 +11,13 @@ function Homepage (){
         </div>
     )
 }
-
 function About (){
     return (
         <div className="container my-5">
-        <h3>О нас</h3>
+            <h3>О нас</h3>
         </div>
     )
 }
-
 function ContactUs (){
     return (
         <div className="container my-5">
@@ -41,20 +30,17 @@ function ContactUs (){
         </div>
     )
 }
-
 function App() {
   return (
-    <div className="App">
-
+    <div className="container">
         <BrowserRouter>
             <Menu/>
-            <Route exact path="/"render={()=><Homepage/>}/>
+            <Route exact path="/" render={()=><PostList/>}/>
             <Route path="/about" render={()=><About/>}/>
-            <Route exact path="/contact-us" render={()=><ContactUs/>}/>
+            <Route path="/contact-us" render={()=><ContactUs/>}/>
+            <Route path="/post" render={()=><Post/>}/>
         </BrowserRouter>
-
     </div>
   );
 }
-
 export default App;
